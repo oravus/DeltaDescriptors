@@ -1,6 +1,6 @@
 # Delta Descriptors
 
-Source code for the paper - "Delta Descriptors: Change-Based Place Representation for Robust Visual Localization", published in IEEE Robotics and Automation Letters (RA-L) 2020 and to be presented at IROS 2020.
+Source code for the paper - "Delta Descriptors: Change-Based Place Representation for Robust Visual Localization", published in IEEE Robotics and Automation Letters (RA-L) 2020 and to be presented at IROS 2020. [[arXiv](https://arxiv.org/abs/2006.05700)] [[IEEE Xplore](https://ieeexplore.ieee.org/document/9128035)]
 
 ## Requirements
 ```
@@ -21,8 +21,11 @@ Delta Descriptors are defined on top of global image descriptors, for example, N
 ``` shell
 python src/main.py --genDesc --genMatch --seqLength 16 --descFullPath <full_path_of_desc.npy> --descQueryFullPath <full_path_of_query_desc.npy>
 ```
-
-The options `--gendesc` and `--genMatch` can be used in isolation or together.
+By default, output is stored in the `./out` folder but can be specified via `--outPath` argument. To see all the options, use:
+``` shell
+python src/main.py --help
+```
+The options `--gendesc` and `--genMatch` can be used in isolation or together, see example usage below.
 
 #### Describe only
 In order to compute only the descriptors for a single traverse, use:
