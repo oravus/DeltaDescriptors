@@ -25,7 +25,7 @@ The input descriptor data is assumed to be a 2D tensor of shape `[numImages,numD
 ``` shell
 python src/main.py --help
 ```
-The options `--gendesc` and `--genMatch` can be used in isolation or together, see example usage below.
+The options `--genDesc` and `--genMatch` can be used in isolation or together, see example usage below.
 
 #### Describe only
 In order to compute only the descriptors for a single traverse, use:
@@ -39,8 +39,15 @@ For only computing matches, given the descriptors (Delta or some other), use:
 python src/main.py --genMatch --descFullPath <full_path_of_desc.npy> --descQueryFullPath <full_path_of_query_desc.npy>
 ```
 
-
-
+#### Evaluate only
+``` shell
+python src/main.py --eval --matchOutputPath <full_path_of_match_output.npz>
+```
+or evaluate directly with `--genMatch` (and possibly `--genDesc`) flag: 
+``` shell
+python src/main.py --eval --genMatch --descFullPath <full_path_of_desc.npy> --descQueryFullPath <full_path_of_query_desc.npy>
+```
+Currently, only Nordland dataset-style (1-to-1 frame correspondence) evaluation is supported, GPS/INS coordinates-based evaluation, for example, for Oxford Robotcar dataset to be added soon. Evalution code can be used to generate PR curves and the code in its current form prints Precision @ 100% Recall for localization radius of 1, 5, 10 and 20 (frames). 
 
 ## Citation
 If you find this code or our work useful, cite it as below:
