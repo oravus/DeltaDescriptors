@@ -5,6 +5,7 @@ Source code for the paper - "Delta Descriptors: Change-Based Place Representatio
 
 We propose Delta Descriptor, defined as a high-dimensional signed vector of change measured across the places observed along a route. Using a difference-based description, places can be effectively recognized despite significant appearance variations.
 ![Schematic of the proposed approach](ral-iros-2020-delta-descriptors-schematic.png "Schematic of the proposed approach - Delta Descriptors")
+Images on the left are from the [Oxford Robotcar](https://robotcar-dataset.robots.ox.ac.uk/) dataset.
 
 ## Requirements
 ```
