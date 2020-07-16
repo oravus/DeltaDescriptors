@@ -21,7 +21,7 @@ Delta Descriptors are defined on top of global image descriptors, for example, N
 ``` shell
 python src/main.py --genDesc --genMatch --seqLength 16 --descFullPath <full_path_of_desc.npy> --descQueryFullPath <full_path_of_query_desc.npy>
 ```
-The input descriptor data is assumed to be a 2D tensor of shape `[numImages,numDescDims]`. By default, output is stored in the `./out` folder but can be specified via `--outPath` argument. To see all the options, use:
+The input descriptor data is assumed to be a 2D tensor of shape `[numImages,numDescDims]`. The computed descriptors are stored in `.npy` format and the match results are stored in `.npz` format comprising a dict of two arrays: `matchInds` (matched reference index per query image) and `matchDists` (corresponding distance value). By default, output is stored in the `./out` folder but can also be specified via `--outPath` argument. To see all the options, use:
 ``` shell
 python src/main.py --help
 ```
