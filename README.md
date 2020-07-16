@@ -42,7 +42,7 @@ python src/main.py --genMatch --descFullPath <full_path_of_desc.npy> --descQuery
 
 
 
-### Citation
+## Citation
 If you find this code or our work useful, cite it as below:
 ```
 @article{garg2020delta,
@@ -57,5 +57,5 @@ If you find this code or our work useful, cite it as below:
 }
 ```
 
-### License
+## License
 The code is released under MIT License.
