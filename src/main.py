@@ -16,6 +16,11 @@ parser.add_argument("--descOpType", type=str, default="Delta", help="Descriptor 
 parser.add_argument("--genMatch", action="store_true", help="Use this flag to generate matches for a given pair of descriptors.")
 parser.add_argument("--descQueryFullPath", type=str, help="Path to the 'query' descriptor data file.")
 
+parser.add_argument("--eval", action="store_true", help="Use this flag to evaluate match output.")
+parser.add_argument("--matchOutputPath", type=str, help="Path to the match output.")
+parser.add_argument("--cordsPathR", type=str, help="Path to reference image co-ordinates.")
+parser.add_argument("--cordsPathQ", type=str, help="Path to query image co-ordinates.")
+
 def main():
     opt = parser.parse_args()
     print(opt)
@@ -29,12 +34,13 @@ def main():
         os.makedirs(outDir)
         print("Created output directory: ", outDir)
 
-    descData = []
-    desc1 = np.load(opt.descFullPath)
-    descData += [desc1]
-    if opt.genMatch:
-        desc2 = np.load(opt.descQueryFullPath)
-        descData += [desc2]
+    if opt.genDesc or opt.genMatch:
+        descData = []
+        descR = np.load(opt.descFullPath)
+        descData += [descR]
+        if opt.genMatch:
+            descQ = np.load(opt.descQueryFullPath)
+            descData += [descQ]
 
     if opt.genDesc:
         print("Computing Descriptors...")
@@ -62,6 +68,13 @@ def main():
         # store match output 
         np.savez(os.path.join(outDir,"matchOutput.npz"),matchInds=mInds,matchDists=mDists)
         outFuncs.saveDistMat(dMat,mInds,os.path.join(outDir,"matchMat.jpg"))
+
+    if opt.eval:
+        if opt.genMatch:
+            resPath = os.path.join(outDir,"matchOutput.npz")
+        else:
+            resPath = opt.matchOutputPath
+        pAt100R = outFuncs.evaluate(resPath,opt.cordsPathR,opt.cordsPathQ)
 
     return
 
