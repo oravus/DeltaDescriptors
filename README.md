@@ -71,3 +71,12 @@ If you find this code or our work useful, cite it as below:
 
 ## License
 The code is released under MIT License.
+
+## Related Projects
+[CoarseHash (2020)](https://github.com/oravus/CoarseHash)
+
+[seq2single (2019)](https://github.com/oravus/seq2single)
+
+[LoST (2018)](https://github.com/oravus/lostX)
+
+
