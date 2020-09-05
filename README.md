@@ -19,10 +19,10 @@ scikit_learn==0.23.1
 See `requirements.txt`, generated using `pipreqs==0.4.10` and `python3.5.6`
 
 
-## Run
+## Usage
 
 #### Describe and Match
-Delta Descriptors are defined on top of global image descriptors, for example, NetVLAD. Given such descriptors, compute Delta Descriptors and match across two traverses as below:
+Delta Descriptors are defined on top of global image descriptors, for example, NetVLAD ([Update 05 Sep 2020: see our python wrapper](https://github.com/oravus/DeltaDescriptors/tree/master/thirdparty)). Given such descriptors, compute Delta Descriptors and match across two traverses as below:
 ``` shell
 python src/main.py --genDesc --genMatch --seqLength 16 --descFullPath <full_path_of_desc.npy> --descQueryFullPath <full_path_of_query_desc.npy>
 ```
