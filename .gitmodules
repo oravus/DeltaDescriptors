@@ -1,0 +1,3 @@
+[submodule "thirdparty/netvlad_tf_open"]
+	path = thirdparty/netvlad_tf_open
+	url = https://github.com/uzh-rpg/netvlad_tf_open.git
