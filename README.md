@@ -21,6 +21,20 @@ See `requirements.txt`, generated using `pipreqs==0.4.10` and `python3.5.6`
 
 ## Usage
 
+#### Download this Repository and the Nordland dataset (part)
+The provided link only downloads a small part (~1 GB) of the original Nordland videos released [here](https://nrkbeta.no/2013/01/15/nordlandsbanen-minute-by-minute-season-by-season/). These videos were first used for visual place recognition in [this](https://www.tu-chemnitz.de/etit/proaut/publications/openseqslam.pdf) paper.
+
+```shell
+git clone https://github.com/oravus/DeltaDescriptors.git
+cd DeltaDescriptors/
+mkdir data/
+cd data/
+wget https://zenodo.org/record/4016653/files/nordland-part-2020.zip
+unzip nordland-part-2020.zip
+```
+
+The zip contains two folders: summer and winter, where each one of them comprises 1750 images which were used for experiments conducted in our paper.
+
 #### Describe and Match
 Delta Descriptors are defined on top of global image descriptors, for example, NetVLAD ([Update 05 Sep 2020: see our python wrapper](https://github.com/oravus/DeltaDescriptors/tree/master/thirdparty)). Given such descriptors, compute Delta Descriptors and match across two traverses as below:
 ``` shell
