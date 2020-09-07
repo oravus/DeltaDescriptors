@@ -22,8 +22,7 @@ See `requirements.txt`, generated using `pipreqs==0.4.10` and `python3.5.6`
 ## Usage
 
 #### Download this Repository and the Nordland dataset (part)
-The provided link only downloads a small part (~1 GB) of the original Nordland videos released [here](https://nrkbeta.no/2013/01/15/nordlandsbanen-minute-by-minute-season-by-season/). These videos were first used for visual place recognition in [this](https://www.tu-chemnitz.de/etit/proaut/publications/openseqslam.pdf) paper.
-
+The dataset used in our paper is available [here](https://zenodo.org/record/4016653#.X1WmYM8zZCV) (or use commands as below). Note that the download only comprises a small part (~1 GB) of the original Nordland videos released [here](https://nrkbeta.no/2013/01/15/nordlandsbanen-minute-by-minute-season-by-season/). These videos were first used for visual place recognition in [this](https://www.tu-chemnitz.de/etit/proaut/publications/openseqslam.pdf) paper.
 ```shell
 git clone https://github.com/oravus/DeltaDescriptors.git
 cd DeltaDescriptors/
