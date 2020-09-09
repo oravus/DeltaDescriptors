@@ -71,7 +71,7 @@ def process(imPath,batchSize=8,outPath=None):
     if outPath is not None:        
         if not os.path.exists(outPath):
             os.makedirs(outPath)
-        uniqueTS = datetime.now().strftime('%b%d_%H-%M-%S')    
+        uniqueTS = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
         saveFullName = os.path.join(outPath,"{}_nvFt".format(uniqueTS))
         np.save(saveFullName,nvFt)
         print("Stored at: ", saveFullName)
