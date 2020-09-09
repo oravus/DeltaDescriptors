@@ -51,7 +51,7 @@ def performOps(data,opName,winL=None,pcaComp=None):
             ftAll.append(ft1D)            
         return ftAll
     
-    elif opName == "conv":
+    elif opName == "delta":
         v = (-1.0*np.ones(winL))/(winL/2.0)
         v[:winL//2] *= -1        
 
