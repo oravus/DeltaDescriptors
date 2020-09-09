@@ -48,7 +48,7 @@ The options `--genDesc` and `--genMatch` can be used in isolation or together, s
 #### Describe only
 In order to compute only the descriptors for a single traverse, use:
 ``` shell
-python src/main.py --genDesc -l 16 -ip1 <full_path_of_desc.npy>
+python src/main.py --genDesc -l 16 -d delta -ip1 <full_path_of_desc.npy>
 ```
 
 #### Match only
