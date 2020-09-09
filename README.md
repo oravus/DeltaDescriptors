@@ -37,7 +37,7 @@ The zip contains two folders: summer and winter, where each one of them comprise
 #### Describe and Match
 Delta Descriptors are defined on top of global image descriptors, for example, NetVLAD ([Update 05 Sep 2020: see our python wrapper](https://github.com/oravus/DeltaDescriptors/tree/master/thirdparty)). Given such descriptors, compute Delta Descriptors and match across two traverses as below:
 ``` shell
-python src/main.py --genDesc --genMatch --seqLength 16 --descFullPath <full_path_of_desc.npy> --descQueryFullPath <full_path_of_query_desc.npy>
+python src/main.py --genDesc --genMatch -l 16 -d delta -ip1 <full_path_of_desc.npy> -ip2 <full_path_of_query_desc.npy>
 ```
 The input descriptor data is assumed to be a 2D tensor of shape `[numImages,numDescDims]`. The computed descriptors are stored in `.npy` format and the match results are stored in `.npz` format comprising a dict of two arrays: `matchInds` (matched reference index per query image) and `matchDists` (corresponding distance value). By default, output is stored in the `./out` folder but can also be specified via `--outPath` argument. To see all the options, use:
 ``` shell
@@ -48,22 +48,22 @@ The options `--genDesc` and `--genMatch` can be used in isolation or together, s
 #### Describe only
 In order to compute only the descriptors for a single traverse, use:
 ``` shell
-python src/main.py --genDesc --seqLength 16 --descFullPath <full_path_of_desc.npy>
+python src/main.py --genDesc -l 16 -ip1 <full_path_of_desc.npy>
 ```
 
 #### Match only
 For only computing matches, given the descriptors (Delta or some other), use:
 ``` shell
-python src/main.py --genMatch --descFullPath <full_path_of_desc.npy> --descQueryFullPath <full_path_of_query_desc.npy>
+python src/main.py --genMatch -ip1 <full_path_of_desc.npy> -ip2 <full_path_of_query_desc.npy>
 ```
 
 #### Evaluate only
 ``` shell
-python src/main.py --eval --matchOutputPath <full_path_of_match_output.npz>
+python src/main.py --eval -mop <full_path_of_match_output.npz>
 ```
 or evaluate directly with `--genMatch` (and possibly `--genDesc`) flag: 
 ``` shell
-python src/main.py --eval --genMatch --descFullPath <full_path_of_desc.npy> --descQueryFullPath <full_path_of_query_desc.npy>
+python src/main.py --eval --genMatch -ip1 <full_path_of_desc.npy> -ip2 <full_path_of_query_desc.npy>
 ```
 Currently, only Nordland dataset-style (1-to-1 frame correspondence) evaluation is supported, GPS/INS coordinates-based evaluation, for example, for Oxford Robotcar dataset to be added soon. Evalution code can be used to generate PR curves and the code in its current form prints Precision @ 100% Recall for localization radius of 1, 5, 10 and 20 (frames). 
 
